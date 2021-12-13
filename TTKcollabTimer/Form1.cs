@@ -52,6 +52,7 @@ namespace TTKcollabTimer
                     Console.WriteLine(temp.Length);
                     timer1.Enabled = true;
                     startButton.Text = "Stop";
+                    Console.WriteLine("sdf");
                 }
             }
             catch (Exception) { }
