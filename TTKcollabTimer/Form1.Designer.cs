@@ -34,7 +34,7 @@
             this.add2 = new System.Windows.Forms.Button();
             this.add5 = new System.Windows.Forms.Button();
             this.startButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.timeBox = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
@@ -93,26 +93,28 @@
             this.startButton.UseVisualStyleBackColor = true;
             this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
-            // textBox1
+            // timeBox
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(13, 18);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(220, 62);
-            this.textBox1.TabIndex = 22;
-            this.textBox1.Text = "0:00";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.timeBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.timeBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeBox.Location = new System.Drawing.Point(13, 18);
+            this.timeBox.Name = "timeBox";
+            this.timeBox.Size = new System.Drawing.Size(220, 73);
+            this.timeBox.TabIndex = 22;
+            this.timeBox.Text = "0:00";
+            this.timeBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // timer1
             // 
             this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(247, 276);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.timeBox);
             this.Controls.Add(this.Reset);
             this.Controls.Add(this.add30);
             this.Controls.Add(this.add2);
@@ -132,7 +134,7 @@
         private System.Windows.Forms.Button add2;
         private System.Windows.Forms.Button add5;
         private System.Windows.Forms.Button startButton;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox timeBox;
         private System.Windows.Forms.Timer timer1;
     }
 }
