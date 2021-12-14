@@ -36,6 +36,7 @@
             this.startButton = new System.Windows.Forms.Button();
             this.timeBox = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Reset
@@ -48,6 +49,7 @@
             this.Reset.Text = "Reset";
             this.Reset.UseVisualStyleBackColor = true;
             this.Reset.Click += new System.EventHandler(this.Reset_Click);
+            this.Reset.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.timeBox_KeyPress);
             // 
             // add30
             // 
@@ -59,6 +61,7 @@
             this.add30.Text = "+ 30 Seconds";
             this.add30.UseVisualStyleBackColor = true;
             this.add30.Click += new System.EventHandler(this.add30_Click);
+            this.add30.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.timeBox_KeyPress);
             // 
             // add2
             // 
@@ -70,6 +73,7 @@
             this.add2.Text = "+ 2 Minutes";
             this.add2.UseVisualStyleBackColor = true;
             this.add2.Click += new System.EventHandler(this.add2_Click);
+            this.add2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.timeBox_KeyPress);
             // 
             // add5
             // 
@@ -81,6 +85,7 @@
             this.add5.Text = "+ 5 Minutes";
             this.add5.UseVisualStyleBackColor = true;
             this.add5.Click += new System.EventHandler(this.add5_Click);
+            this.add5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.timeBox_KeyPress);
             // 
             // startButton
             // 
@@ -92,6 +97,7 @@
             this.startButton.Text = "Start";
             this.startButton.UseVisualStyleBackColor = true;
             this.startButton.Click += new System.EventHandler(this.startButton_Click);
+            this.startButton.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.timeBox_KeyPress);
             // 
             // timeBox
             // 
@@ -103,25 +109,41 @@
             this.timeBox.TabIndex = 22;
             this.timeBox.Text = "0:00";
             this.timeBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.timeBox.Enter += new System.EventHandler(this.timeBox_Enter);
+            this.timeBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.timeBox_KeyPress);
             // 
             // timer1
             // 
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 274);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.TabIndex = 23;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(247, 276);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.timeBox);
             this.Controls.Add(this.Reset);
             this.Controls.Add(this.add30);
             this.Controls.Add(this.add2);
             this.Controls.Add(this.add5);
             this.Controls.Add(this.startButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(263, 315);
+            this.MinimumSize = new System.Drawing.Size(263, 315);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Timer";
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.timeBox_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,6 +158,7 @@
         private System.Windows.Forms.Button startButton;
         private System.Windows.Forms.TextBox timeBox;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label1;
     }
 }
 

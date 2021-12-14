@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Input;
 
 namespace TTKcollabTimer
 {
@@ -29,6 +30,11 @@ namespace TTKcollabTimer
         }
 
         private void startButton_Click(object sender, EventArgs e)
+        {
+            start();
+        }
+
+        private void start()
         {
             try
             {
@@ -57,6 +63,7 @@ namespace TTKcollabTimer
             }
             catch (Exception) { }
         }
+
         private void add30_Click(object sender, EventArgs e)
         {
             if (countdown + 30 <= 3540)
@@ -137,6 +144,20 @@ namespace TTKcollabTimer
                 startButton.Text = "Start";
             }
             Console.WriteLine(Math.Floor(countdown / 60).ToString() + ":" + secs);
+        }
+
+        private void timeBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar ==  (int)Keys.Enter)
+            {
+                start();
+                label1.Focus();
+            }
+        }
+
+        private void timeBox_Enter(object sender, EventArgs e)
+        {
+            timeBox.Text = "";
         }
     }
 }
