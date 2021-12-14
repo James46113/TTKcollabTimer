@@ -158,6 +158,7 @@ namespace TTKcollabTimer
         private void timeBox_Enter(object sender, EventArgs e)
         {
             timeBox.Text = "";
+            Console.WriteLine();
         }
     }
 }
