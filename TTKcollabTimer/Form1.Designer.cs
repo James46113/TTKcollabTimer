@@ -37,6 +37,10 @@
             this.timeBox = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
+            this.volumeUp = new System.Windows.Forms.Button();
+            this.volumeDown = new System.Windows.Forms.Button();
+            this.volumeLabel = new System.Windows.Forms.Label();
+            this.muteButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Reset
@@ -103,7 +107,7 @@
             // 
             this.timeBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.timeBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timeBox.Location = new System.Drawing.Point(13, 18);
+            this.timeBox.Location = new System.Drawing.Point(15, 9);
             this.timeBox.Name = "timeBox";
             this.timeBox.Size = new System.Drawing.Size(220, 73);
             this.timeBox.TabIndex = 22;
@@ -125,11 +129,55 @@
             this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 23;
             // 
+            // volumeUp
+            // 
+            this.volumeUp.Location = new System.Drawing.Point(107, 263);
+            this.volumeUp.Name = "volumeUp";
+            this.volumeUp.Size = new System.Drawing.Size(39, 25);
+            this.volumeUp.TabIndex = 24;
+            this.volumeUp.Text = "+";
+            this.volumeUp.UseVisualStyleBackColor = true;
+            this.volumeUp.Click += new System.EventHandler(this.volumeUp_Click);
+            // 
+            // volumeDown
+            // 
+            this.volumeDown.Location = new System.Drawing.Point(195, 263);
+            this.volumeDown.Name = "volumeDown";
+            this.volumeDown.Size = new System.Drawing.Size(39, 25);
+            this.volumeDown.TabIndex = 25;
+            this.volumeDown.Text = "–";
+            this.volumeDown.UseVisualStyleBackColor = true;
+            this.volumeDown.Click += new System.EventHandler(this.volumeDown_Click);
+            // 
+            // volumeLabel
+            // 
+            this.volumeLabel.Location = new System.Drawing.Point(152, 269);
+            this.volumeLabel.Name = "volumeLabel";
+            this.volumeLabel.Size = new System.Drawing.Size(37, 13);
+            this.volumeLabel.TabIndex = 26;
+            this.volumeLabel.Text = "100 🔊";
+            this.volumeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // muteButton
+            // 
+            this.muteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.muteButton.Location = new System.Drawing.Point(15, 262);
+            this.muteButton.Name = "muteButton";
+            this.muteButton.Size = new System.Drawing.Size(86, 25);
+            this.muteButton.TabIndex = 27;
+            this.muteButton.Text = "🔊";
+            this.muteButton.UseVisualStyleBackColor = true;
+            this.muteButton.Click += new System.EventHandler(this.muteButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(247, 276);
+            this.ClientSize = new System.Drawing.Size(247, 294);
+            this.Controls.Add(this.muteButton);
+            this.Controls.Add(this.volumeLabel);
+            this.Controls.Add(this.volumeDown);
+            this.Controls.Add(this.volumeUp);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.timeBox);
             this.Controls.Add(this.Reset);
@@ -137,12 +185,10 @@
             this.Controls.Add(this.add2);
             this.Controls.Add(this.add5);
             this.Controls.Add(this.startButton);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(263, 315);
-            this.MinimumSize = new System.Drawing.Size(263, 315);
             this.Name = "Form1";
             this.Text = "Timer";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.timeBox_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -159,6 +205,10 @@
         private System.Windows.Forms.TextBox timeBox;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button volumeUp;
+        private System.Windows.Forms.Button volumeDown;
+        private System.Windows.Forms.Label volumeLabel;
+        private System.Windows.Forms.Button muteButton;
     }
 }
 

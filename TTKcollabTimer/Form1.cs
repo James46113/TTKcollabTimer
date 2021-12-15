@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace TTKcollabTimer
 {
@@ -16,6 +17,12 @@ namespace TTKcollabTimer
         float countdown = 0;
         string[] temp;
         public Point MouseDownLocation;
+        int volume = 100;
+        int tempvol;
+        bool muted = false;
+        string spkr = "🔊";
+        private MediaPlayer mp = new MediaPlayer();
+
         public Form1()
         {
             InitializeComponent();
@@ -142,6 +149,8 @@ namespace TTKcollabTimer
             {
                 timer1.Enabled = false;
                 startButton.Text = "Start";
+                mp.Open(new Uri(@"G:\James Caroe\beep.wav"));
+                mp.Play();
             }
             Console.WriteLine(Math.Floor(countdown / 60).ToString() + ":" + secs);
         }
@@ -158,6 +167,111 @@ namespace TTKcollabTimer
         private void timeBox_Enter(object sender, EventArgs e)
         {
             timeBox.Text = "";
+            timer1.Enabled = false;
+            startButton.Text = "Start";
+        }
+
+        private void volumeUp_Click(object sender, EventArgs e)
+        {
+            muted = false;
+            muteButton.Text = "🔊";
+            volume = tempvol;
+            if (volume + 5 <= 100)
+            {
+                volume += 5;
+            }
+            if (volume == 0)
+            {
+                spkr = "🔇";
+            }
+            else if (volume < 25)
+            {
+                spkr = "🔈";
+            }
+            else if (volume < 60)
+            {
+                spkr = "🔉";
+            }
+            else
+            {
+                spkr = "🔊";
+            }
+            mp.Volume = volume / 100.0f;
+            volumeLabel.Text = volume.ToString() + spkr;
+        }
+
+        private void volumeDown_Click(object sender, EventArgs e)
+        {
+            if (muted)
+            {
+                muted = false;
+                muteButton.Text = "🔊";
+                volume = tempvol;
+            }
+            if (volume - 5 >= 0)
+            {
+                volume -= 5;
+            }
+            if (volume == 0)
+            {
+                spkr = "🔇";
+            }
+            else if (volume < 25)
+            {
+                spkr = "🔈";
+            }
+            else if (volume < 60)
+            {
+                spkr = "🔉";
+            }
+            else
+            {
+                spkr = "🔊";
+            }
+            mp.Volume = volume / 100.0f;
+            volumeLabel.Text = volume.ToString() + spkr;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            volumeLabel.Text = volume.ToString() + spkr;
+        }
+
+        private void muteButton_Click(object sender, EventArgs e)
+        {
+            if (!muted)
+            {
+                muted = true;
+                muteButton.Text = "🔇";
+                tempvol = volume;
+                volume = 0;
+                spkr = "🔇";
+                volumeLabel.Text = volume.ToString() + spkr;
+            }
+            else
+            {
+                muted = false;
+                muteButton.Text = "🔊";
+                volume = tempvol;
+                if (volume == 0)
+                {
+                    spkr = "🔇";
+                }
+                else if (volume < 25)
+                {
+                    spkr = "🔈";
+                }
+                else if (volume < 60)
+                {
+                    spkr = "🔉";
+                }
+                else
+                {
+                    spkr = "🔊";
+                }
+                volumeLabel.Text = volume.ToString() + spkr;
+            }
+            Console.WriteLine(tempvol);
         }
     }
 }
