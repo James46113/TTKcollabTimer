@@ -173,9 +173,12 @@ namespace TTKcollabTimer
 
         private void volumeUp_Click(object sender, EventArgs e)
         {
-            muted = false;
-            muteButton.Text = "🔊";
-            volume = tempvol;
+            if (muted)
+            {
+                muted = false;
+                muteButton.Text = "🔊";
+                volume = tempvol;
+            }
             if (volume + 5 <= 100)
             {
                 volume += 5;
