@@ -42,8 +42,6 @@
             this.volumeLabel = new System.Windows.Forms.Label();
             this.muteButton = new System.Windows.Forms.Button();
             this.popOutButton = new System.Windows.Forms.Button();
-            this.volumeUpTimer = new System.Windows.Forms.Timer(this.components);
-            this.volumeDownTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // Reset
@@ -140,6 +138,7 @@
             this.volumeUp.TabIndex = 24;
             this.volumeUp.Text = "+";
             this.volumeUp.UseVisualStyleBackColor = true;
+            this.volumeUp.Click += new System.EventHandler(this.volumeUp_Click);
             // 
             // volumeDown
             // 
@@ -180,16 +179,6 @@
             this.popOutButton.TabIndex = 28;
             this.popOutButton.Text = "⇱";
             this.popOutButton.UseVisualStyleBackColor = true;
-            // 
-            // volumeUpTimer
-            // 
-            this.volumeUpTimer.Interval = 500;
-            this.volumeUpTimer.Tick += new System.EventHandler(this.volumeUpTimer_Tick);
-            // 
-            // volumeDownTimer
-            // 
-            this.volumeDownTimer.Interval = 500;
-            this.volumeDownTimer.Tick += new System.EventHandler(this.volumeDownTimer_Tick);
             // 
             // Form1
             // 
@@ -234,8 +223,6 @@
         private System.Windows.Forms.Label volumeLabel;
         private System.Windows.Forms.Button muteButton;
         private System.Windows.Forms.Button popOutButton;
-        private System.Windows.Forms.Timer volumeUpTimer;
-        private System.Windows.Forms.Timer volumeDownTimer;
     }
 }
 

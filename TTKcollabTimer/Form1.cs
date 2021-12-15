@@ -176,12 +176,19 @@ namespace TTKcollabTimer
 
         private void volumeUp_Click(object sender, EventArgs e)
         {
-            
-        }
+            if (muted)
+            {
+                muted = false;
+                muteButton.Text = "🔊";
+                volume = tempvol;
+            }
+            if (volume + 5 <= 100)
+            {
+                volume += 5;
+            }
 
-        private void volumeDown_Click(object sender, EventArgs e)
-        {
-            
+            mp.Volume = volume / 100.0f;
+            volumeLabel.Text = volume.ToString();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -209,7 +216,8 @@ namespace TTKcollabTimer
             Console.WriteLine(tempvol);
         }
 
-        private void volumeDownTimer_Tick(object sender, EventArgs e)
+
+        private void volumeDown_Click(object sender, EventArgs e)
         {
             if (muted)
             {
@@ -220,23 +228,6 @@ namespace TTKcollabTimer
             if (volume - 5 >= 0)
             {
                 volume -= 5;
-            }
-
-            mp.Volume = volume / 100.0f;
-            volumeLabel.Text = volume.ToString();
-        }
-
-        private void volumeUpTimer_Tick(object sender, EventArgs e)
-        {
-            if (muted)
-            {
-                muted = false;
-                muteButton.Text = "🔊";
-                volume = tempvol;
-            }
-            if (volume + 5 <= 100)
-            {
-                volume += 5;
             }
 
             mp.Volume = volume / 100.0f;
