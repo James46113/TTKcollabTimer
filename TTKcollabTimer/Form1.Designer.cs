@@ -41,6 +41,9 @@
             this.volumeDown = new System.Windows.Forms.Button();
             this.volumeLabel = new System.Windows.Forms.Label();
             this.muteButton = new System.Windows.Forms.Button();
+            this.popOutButton = new System.Windows.Forms.Button();
+            this.volumeUpTimer = new System.Windows.Forms.Timer(this.components);
+            this.volumeDownTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // Reset
@@ -131,17 +134,16 @@
             // 
             // volumeUp
             // 
-            this.volumeUp.Location = new System.Drawing.Point(107, 263);
+            this.volumeUp.Location = new System.Drawing.Point(194, 262);
             this.volumeUp.Name = "volumeUp";
             this.volumeUp.Size = new System.Drawing.Size(39, 25);
             this.volumeUp.TabIndex = 24;
             this.volumeUp.Text = "+";
             this.volumeUp.UseVisualStyleBackColor = true;
-            this.volumeUp.Click += new System.EventHandler(this.volumeUp_Click);
             // 
             // volumeDown
             // 
-            this.volumeDown.Location = new System.Drawing.Point(195, 263);
+            this.volumeDown.Location = new System.Drawing.Point(107, 263);
             this.volumeDown.Name = "volumeDown";
             this.volumeDown.Size = new System.Drawing.Size(39, 25);
             this.volumeDown.TabIndex = 25;
@@ -151,9 +153,10 @@
             // 
             // volumeLabel
             // 
-            this.volumeLabel.Location = new System.Drawing.Point(152, 269);
+            this.volumeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.volumeLabel.Location = new System.Drawing.Point(152, 263);
             this.volumeLabel.Name = "volumeLabel";
-            this.volumeLabel.Size = new System.Drawing.Size(37, 13);
+            this.volumeLabel.Size = new System.Drawing.Size(37, 24);
             this.volumeLabel.TabIndex = 26;
             this.volumeLabel.Text = "100 🔊";
             this.volumeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -169,11 +172,31 @@
             this.muteButton.UseVisualStyleBackColor = true;
             this.muteButton.Click += new System.EventHandler(this.muteButton_Click);
             // 
+            // popOutButton
+            // 
+            this.popOutButton.Location = new System.Drawing.Point(15, 12);
+            this.popOutButton.Name = "popOutButton";
+            this.popOutButton.Size = new System.Drawing.Size(23, 23);
+            this.popOutButton.TabIndex = 28;
+            this.popOutButton.Text = "⇱";
+            this.popOutButton.UseVisualStyleBackColor = true;
+            // 
+            // volumeUpTimer
+            // 
+            this.volumeUpTimer.Interval = 500;
+            this.volumeUpTimer.Tick += new System.EventHandler(this.volumeUpTimer_Tick);
+            // 
+            // volumeDownTimer
+            // 
+            this.volumeDownTimer.Interval = 500;
+            this.volumeDownTimer.Tick += new System.EventHandler(this.volumeDownTimer_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(247, 294);
+            this.Controls.Add(this.popOutButton);
             this.Controls.Add(this.muteButton);
             this.Controls.Add(this.volumeLabel);
             this.Controls.Add(this.volumeDown);
@@ -185,6 +208,7 @@
             this.Controls.Add(this.add2);
             this.Controls.Add(this.add5);
             this.Controls.Add(this.startButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Timer";
@@ -209,6 +233,9 @@
         private System.Windows.Forms.Button volumeDown;
         private System.Windows.Forms.Label volumeLabel;
         private System.Windows.Forms.Button muteButton;
+        private System.Windows.Forms.Button popOutButton;
+        private System.Windows.Forms.Timer volumeUpTimer;
+        private System.Windows.Forms.Timer volumeDownTimer;
     }
 }
 
