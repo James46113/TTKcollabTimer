@@ -173,12 +173,13 @@
             // 
             // popOutButton
             // 
-            this.popOutButton.Location = new System.Drawing.Point(15, 12);
+            this.popOutButton.Location = new System.Drawing.Point(15, 10);
             this.popOutButton.Name = "popOutButton";
             this.popOutButton.Size = new System.Drawing.Size(23, 23);
             this.popOutButton.TabIndex = 28;
             this.popOutButton.Text = "⇱";
             this.popOutButton.UseVisualStyleBackColor = true;
+            this.popOutButton.Click += new System.EventHandler(this.popOutButton_Click);
             // 
             // Form1
             // 

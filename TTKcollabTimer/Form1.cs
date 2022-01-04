@@ -17,11 +17,12 @@ namespace TTKcollabTimer
         float countdown = 0;
         string[] temp;
         public Point MouseDownLocation;
+        static public float countdownNum = 0f;
         int volume = 50;
         int tempvol;
         bool muted = false;
         string spkr = "🔊";
-        private MediaPlayer mp = new MediaPlayer();
+        static public MediaPlayer mp = new MediaPlayer();
 
         public Form1()
         {
@@ -232,6 +233,26 @@ namespace TTKcollabTimer
 
             mp.Volume = volume / 100.0f;
             volumeLabel.Text = volume.ToString();
+        }
+
+        private void popOutButton_Click(object sender, EventArgs e)
+        {
+            if (timer1.Enabled)
+            {
+                temp = timeBox.Text.Split(':');
+                if (temp.Length == 2)
+                {
+                    countdown = Convert.ToInt32(temp[0]) * 60 + Convert.ToInt32(temp[1]);
+                }
+                else if (temp.Length == 1)
+                {
+                    countdown = Convert.ToInt32(temp[0]) * 60;
+                    Console.WriteLine(countdown);
+                }
+                countdownNum = countdown;
+                PopOutForm f = new PopOutForm();
+                f.Show();
+            }
         }
     }
 }
